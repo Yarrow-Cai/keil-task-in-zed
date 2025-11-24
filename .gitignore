@@ -1,0 +1,42 @@
+# Keil specific
+*.bak
+*.ddk
+*.edk
+*.lst
+*.lnp
+*.mpf
+*.mpj
+*.obj
+*.omf
+*.plg
+*.rpt
+*.tmp
+*.__i
+*.crf
+*.o
+*.d
+*.axf
+*.tra
+*.dep
+*.map
+*.sct
+*.uvopt
+*.uvoptx
+*.uvguix.*
+*.uvgui.*
+
+# Keil Build Output folders
+JLinkLog.txt
+RTE/
+listings/
+objects/
+output/
+Debug/
+Release/
+
+# Temporary log file from our script
+keil_build_log.txt
+
+# IDE settings
+.vscode/
+.idea/

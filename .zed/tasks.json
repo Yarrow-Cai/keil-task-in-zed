@@ -1,0 +1,35 @@
+// File: .zed/tasks.json
+//
+// 此任务配置会自动调用辅助脚本来查找项目文件。
+//
+// 如何使用:
+// 1. 打开 `.zed/keil_task.bat` 文件。
+// 2. 在文件顶部, 将 `KEIL_PATH` 变量设置为你电脑上 Keil 的实际安装路径。
+// 3. 完成! 现在你可以将这个 `.zed` 文件夹复制到任何项目, 它会自动工作。
+//
+[
+  {
+    "label": "Keil: 编译 (自动查找)",
+    "command": "cmd.exe",
+    "args": ["/c", ".zed\\keil_task.bat", "build"],
+    "reveal": "always"
+  },
+  {
+    "label": "Keil: 重新编译 (自动查找)",
+    "command": "cmd.exe",
+    "args": ["/c", ".zed\\keil_task.bat", "rebuild"],
+    "reveal": "always"
+  },
+  {
+    "label": "Keil: 烧录 (自动查找)",
+    "command": "cmd.exe",
+    "args": ["/c", ".zed\\keil_task.bat", "flash"],
+    "reveal": "always"
+  },
+  {
+    "label": "Keil: 清理 (Clean)",
+    "command": "cmd.exe",
+    "args": ["/c", ".zed\\keilkilll.bat"],
+    "reveal": "always"
+  }
+]
