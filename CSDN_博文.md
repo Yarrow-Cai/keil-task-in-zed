@@ -436,4 +436,4 @@ jobs:
 
 *如果你觉得这个工具对你有帮助，请在GitHub上给项目一个星标，这会鼓励我们继续改进！也欢迎提交Issue和PR，一起完善这个工具集，让更多嵌入式开发者受益。*
 
-**项目地址**：https://github.com/atopx/keil-task-in-zed
+**项目地址**：https://github.com/Yarrow-Cai/keil-task-in-zed

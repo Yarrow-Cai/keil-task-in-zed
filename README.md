@@ -111,7 +111,7 @@
 
 ## 资源链接
 
-- **项目主页**: [GitHub - keil-task-in-zed](https://github.com/atopx/keil-task-in-zed)
+- **项目主页**: [GitHub - keil-task-in-zed](https://github.com/Yarrow-Cai/keil-task-in-zed)
 - **Zed 编辑器官网**: [zed.dev](https://zed.dev/)
 - **clangd 文档**: [clangd.llvm.org](https://clangd.llvm.org/)
 - **Keil MDK 官方文档**: [developer.arm.com](https://developer.arm.com/tools-and-software/embedded/keil-mdk)
