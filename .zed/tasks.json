@@ -31,5 +31,23 @@
     "command": "cmd.exe",
     "args": ["/c", ".zed\\keilkilll.bat"],
     "reveal": "always"
+  },
+  {
+    "label": "Keil: clangd 配置与 compile_commands 生成",
+    "command": "cmd.exe",
+    "args": ["/c", ".zed\\clangd_config.bat"],
+    "reveal": "always"
+  },
+  {
+    "label": "Keil: 生成 .gitignore 文件",
+    "command": "cmd.exe",
+    "args": ["/c", ".zed\\gitignore_config.bat"],
+    "reveal": "always"
+  },
+  {
+    "label": "Keil: 转换所有 C/H 文件为 UTF-8",
+    "command": "cmd.exe",
+    "args": ["/c", ".zed\\keil_utf8conv.bat"],
+    "reveal": "always"
   }
 ]
