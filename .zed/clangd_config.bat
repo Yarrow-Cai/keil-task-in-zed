@@ -59,7 +59,7 @@ if exist ".clangd" (
     @REM 创建配置文件内容
     @(
         echo CompileFlags:
-        echo   Add: [-include, stdint.h, -include, string.h, -IFirmware/CMSIS/Include, -Wno-include-next]
+        echo   Add: [-include, stdint.h, -include, string.h, -IFirmware/CMSIS/Include, -ID:\Program Files\ARM\MDK5\ARM\ARMCLANG\include, -Wno-include-next]
         echo Diagnostics:
         echo   Suppress: [unused-includes]
         echo Index:
