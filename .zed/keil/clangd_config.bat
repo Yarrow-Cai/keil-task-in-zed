@@ -59,9 +59,9 @@ if exist ".clangd" (
     @REM 创建配置文件内容
     @(
         echo CompileFlags:
-        echo   Add: [-include, stdint.h, -include, string.h, -IFirmware/CMSIS/Include, -ID:\Program Files\ARM\MDK5\ARM\ARMCLANG\include, -Wno-include-next,-D__ARM_ACLE=200, -march=armv8-m.main]
+        echo   Add: [-include, stdint.h, -include, string.h, -IFirmware/CMSIS/Include, -ID:\Program Files\ARM\MDK5\ARM\ARMCLANG\include, -Wno-include-next,-D__ARM_ACLE=200, -D__ARM_ARCH_PROFILE='M']
         echo Diagnostics:
-        echo   Suppress: [unused-includes]
+        echo   Suppress: [unused-includes,redefinition_different_typedef,pp_including_mainfile_in_preamble]
         echo Index:
         echo   Background: Build
         echo.
@@ -151,11 +151,11 @@ if exist "compile_commands.json" (
 @REM 尝试使用 keil2clangd 工具生成/更新 compile_commands.json
 if defined FOUND_PROJ (
     @echo [INFO] 使用 keil2clangd 工具生成 compile_commands.json...
-    .zed\keil2clangd.exe "%FOUND_PROJ%" -o "BUILD\compile_commands.json"
+    .zed\keil\keil2clangd.exe "%FOUND_PROJ%" -o "compile_commands.json"
 
     if errorlevel 1 (
         @echo [ERROR] keil2clangd 工具运行失败，将使用默认模板
-        if not exist "BUILD\compile_commands.json" (
+        if not exist "compile_commands.json" (
             @(
                 echo {
                 echo   "version": 1,
@@ -167,15 +167,15 @@ if defined FOUND_PROJ (
                 echo     }
                 echo   ]
                 echo }
-            ) > "BUILD\compile_commands.json"
-            @echo [INFO] 使用默认模板在 BUILD 目录创建 compile_commands.json
+            ) > "compile_commands.json"
+            @echo [INFO] 使用默认模板创建 compile_commands.json
         )
     ) else (
         @echo [SUCCESS] 已使用 keil2clangd 工具生成/更新 compile_commands.json
     )
 ) else (
     @echo [WARNING] 未找到 Keil 项目文件，无法使用 keil2clangd 工具
-    if not exist "BUILD\compile_commands.json" (
+    if not exist "compile_commands.json" (
         @(
             echo {
             echo   "version": 1,
@@ -187,8 +187,8 @@ if defined FOUND_PROJ (
             echo     }
             echo   ]
             echo }
-        ) > "BUILD\compile_commands.json"
-        @echo [INFO] 使用默认模板在 BUILD 目录创建 compile_commands.json
+        ) > "compile_commands.json"
+        @echo [INFO] 使用默认模板创建 compile_commands.json
     )
 )
 
