@@ -11,43 +11,43 @@
   {
     "label": "Keil: 编译 (自动查找)",
     "command": "cmd.exe",
-    "args": ["/c", ".zed\\keil_task.bat", "build"],
+    "args": ["/c", ".zed\\keil\\keil_task.bat", "build"],
     "reveal": "always"
   },
   {
     "label": "Keil: 重新编译 (自动查找)",
     "command": "cmd.exe",
-    "args": ["/c", ".zed\\keil_task.bat", "rebuild"],
+    "args": ["/c", ".zed\\keil\\keil_task.bat", "rebuild"],
     "reveal": "always"
   },
   {
     "label": "Keil: 烧录 (自动查找)",
     "command": "cmd.exe",
-    "args": ["/c", ".zed\\keil_task.bat", "flash"],
+    "args": ["/c", ".zed\\keil\\keil_task.bat", "flash"],
     "reveal": "always"
   },
   {
     "label": "Keil: 清理 (Clean)",
     "command": "cmd.exe",
-    "args": ["/c", ".zed\\keilkilll.bat"],
+    "args": ["/c", ".zed\\keil\\keilkilll.bat"],
     "reveal": "always"
   },
   {
     "label": "Keil: clangd 配置与 compile_commands 生成",
     "command": "cmd.exe",
-    "args": ["/c", ".zed\\clangd_config.bat"],
+    "args": ["/c", ".zed\\keil\\clangd_config.bat"],
     "reveal": "always"
   },
   {
     "label": "Keil: 生成 .gitignore 文件",
     "command": "cmd.exe",
-    "args": ["/c", ".zed\\gitignore_config.bat"],
+    "args": ["/c", ".zed\\keil\\gitignore_config.bat"],
     "reveal": "always"
   },
   {
     "label": "Keil: 转换所有 C/H 文件为 UTF-8",
     "command": "cmd.exe",
-    "args": ["/c", ".zed\\keil_utf8conv.bat"],
+    "args": ["/c", ".zed\\keil\\keil_utf8conv.bat"],
     "reveal": "always"
   }
 ]
