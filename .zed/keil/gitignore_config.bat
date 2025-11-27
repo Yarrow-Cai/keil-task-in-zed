@@ -66,6 +66,7 @@ echo CLAUDE-* >> ".gitignore"
 :: AI Agent 文件
 echo agent/ >> ".gitignore"
 echo agents/ >> ".gitignore"
+echo .promptx/ >> ".gitignore"
 
 :: Spec 文件
 echo: >> ".gitignore"
