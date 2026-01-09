@@ -49,5 +49,11 @@
     "command": "cmd.exe",
     "args": ["/c", ".zed\\keil\\keil_utf8conv.bat"],
     "reveal": "always"
+  },
+  {
+    "label": "terminal",
+    "command": "cmd.exe",
+    "args": [],
+    "reveal": "always"
   }
 ]

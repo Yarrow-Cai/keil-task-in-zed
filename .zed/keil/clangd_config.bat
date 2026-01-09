@@ -61,9 +61,10 @@ if exist ".clangd" (
         echo CompileFlags:
         echo   Add: [-include, stdint.h, -include, string.h, -IFirmware/CMSIS/Include, -ID:\Program Files\ARM\MDK5\ARM\ARMCLANG\include, -Wno-include-next,-D__ARM_ACLE=200, -D__ARM_ARCH_PROFILE='M']
         echo Diagnostics:
-        echo   Suppress: [unused-includes,redefinition_different_typedef,pp_including_mainfile_in_preamble]
+        echo   Suppress: [unused-includes,redefinition_different_typedef,pp_including_mainfile_in_preamble,clang fatal_too_many_errors,]
         echo Index:
         echo   Background: Build
+        echo   StandardLibrary: true
         echo.
         echo # 官方常用 clangd 配置介绍
         echo #
