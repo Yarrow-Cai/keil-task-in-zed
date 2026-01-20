@@ -119,6 +119,7 @@ echo .ycm_extra_conf.py >> ".gitignore"
 
 :: LSP 缓存和索引（不包括clangd）
 echo .cquery_cached_index/ >> ".gitignore"
+echo .cache/ >> ".gitignore"
 
 :: Spec 文件
 echo: >> ".gitignore"
