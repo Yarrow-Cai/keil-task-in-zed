@@ -57,8 +57,10 @@ echo .vscode/extensions.json.backup >> ".gitignore"
 echo .vscode/keybindings.json.backup >> ".gitignore"
 echo .vscode/tasks.json.backup >> ".gitignore"
 
-:: Zed 编辑器配置
-echo .zed/ >> ".gitignore"
+
+:: Zed 编辑器配置（保留配置，忽略wiki）
+# echo .zed/ >> ".gitignore"
+echo .zed/wiki/ >> ".gitignore"
 echo .zed-state/ >> ".gitignore"
 echo zed.db >> ".gitignore"
 echo zed.log >> ".gitignore"

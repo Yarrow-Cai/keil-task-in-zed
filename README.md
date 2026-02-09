@@ -37,9 +37,9 @@
     *   `Keil: 重新编译 (自动查找)`: 完全重新编译你的项目。
     *   `Keil: 烧录 (自动查找)`: 编译并烧录程序到目标硬件。
     *   `Keil: 清理 (Clean)`: 清理编译过程中产生的临时文件。
-    *   `Keil: clangd 配置与 compile_commands 生成`: 为 Zed 配置 clangd 语言服务器。
-    *   `Keil: 生成 .gitignore 文件`: 自动生成适合 Keil 项目的 .gitignore 文件。
-    *   `Keil: 转换所有 C/H 文件为 UTF-8`: 批量转换项目中的源文件编码为 UTF-8。
+    *   `Keil: clangd 配置与 compile_commands 生成`: 生成 C/C++ 语言服务器配置。
+    *   `Keil: 生成 .gitignore 文件`: 自动生成项目所需的 Git 忽略规则。
+    *   `Keil: 转换所有 C/H 文件为 UTF-8`: 批量转换源文件编码。
 
 ---
 
