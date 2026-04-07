@@ -9,51 +9,51 @@
 //
 [
   {
-    "label": "Keil: 编译 (自动查找)",
+    "label": "Keil: 编译",
     "command": "cmd.exe",
     "args": ["/c", ".zed\\keil\\keil_task.bat", "build"],
-    "reveal": "always"
+    "reveal": "always",
   },
   {
-    "label": "Keil: 重新编译 (自动查找)",
+    "label": "Keil: 重新编译",
     "command": "cmd.exe",
     "args": ["/c", ".zed\\keil\\keil_task.bat", "rebuild"],
-    "reveal": "always"
+    "reveal": "always",
   },
   {
-    "label": "Keil: 烧录 (自动查找)",
+    "label": "Keil: 烧录",
     "command": "cmd.exe",
     "args": ["/c", ".zed\\keil\\keil_task.bat", "flash"],
-    "reveal": "always"
+    "reveal": "always",
   },
   {
-    "label": "Keil: 清理 (Clean)",
+    "label": "Keil: 清理",
     "command": "cmd.exe",
     "args": ["/c", ".zed\\keil\\keilkilll.bat"],
-    "reveal": "always"
+    "reveal": "always",
   },
   {
     "label": "Keil: clangd 配置与 compile_commands 生成",
     "command": "cmd.exe",
     "args": ["/c", ".zed\\keil\\clangd_config.bat"],
-    "reveal": "always"
+    "reveal": "always",
   },
   {
     "label": "Keil: 生成 .gitignore 文件",
     "command": "cmd.exe",
     "args": ["/c", ".zed\\keil\\gitignore_config.bat"],
-    "reveal": "always"
+    "reveal": "always",
   },
   {
     "label": "Keil: 转换所有 C/H 文件为 UTF-8",
     "command": "cmd.exe",
     "args": ["/c", ".zed\\keil\\keil_utf8conv.bat"],
-    "reveal": "always"
+    "reveal": "always",
   },
   {
     "label": "terminal",
     "command": "cmd.exe",
     "args": [],
-    "reveal": "always"
-  }
+    "reveal": "always",
+  },
 ]
