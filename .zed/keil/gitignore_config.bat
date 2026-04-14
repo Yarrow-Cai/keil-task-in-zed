@@ -192,6 +192,14 @@ echo .DS_Store >> ".gitignore"
 echo Thumbs.db >> ".gitignore"
 echo desktop.ini >> ".gitignore"
 
+:: 工作区文件
+echo: >> ".gitignore"
+echo # Workspace and worktree files >> ".gitignore"
+echo .worktree/ >> ".gitignore"
+echo worktree/ >> ".gitignore"
+echo .git-worktree/ >> ".gitignore"
+echo *.worktree >> ".gitignore"
+
 :: EIDE插件
 echo /.eide/log >> ".gitignore"
 echo /.eide.usr.ctx.json >> ".gitignore"
