@@ -11,13 +11,14 @@
 ## 项目介绍
 
 `keil-task-in-zed`是一个轻量级工具集，包含以下核心文件：
-1. `.zed/tasks.json` - Zed任务定义文件，定义了7个实用任务
-2. `.zed/keil_task.bat` - 核心功能脚本，负责自动查找项目并调用Keil
-3. `.zed/keilkilll.bat` - 清理脚本，删除编译临时文件
-4. `.zed/clangd_config.bat` - clangd配置脚本，提升代码编辑体验
-5. `.zed/gitignore_config.bat` - .gitignore生成脚本，管理版本控制
-6. `.zed/keil_utf8conv.bat` - 编码转换脚本，处理文件编码问题
-7. `.zed/keil2clangd.exe` - 辅助工具，用于生成compile_commands.json
+1. `.claude/skills/configure-keil-zed/SKILL.md` - AI 一键配置 Skill，让 AI 自动完成项目部署的全流程
+2. `.zed/tasks.json` - Zed任务定义文件，定义了7个实用任务
+3. `.zed/keil_task.bat` - 核心功能脚本，负责自动查找项目并调用Keil
+4. `.zed/keilkilll.bat` - 清理脚本，删除编译临时文件
+5. `.zed/clangd_config.bat` - clangd配置脚本，提升代码编辑体验
+6. `.zed/gitignore_config.bat` - .gitignore生成脚本，管理版本控制
+7. `.zed/keil_utf8conv.bat` - 编码转换脚本，处理文件编码问题
+8. `.zed/keil2clangd.exe` - 辅助工具，用于生成compile_commands.json
 
 它实现了自动查找项目文件、调用Keil编译器、配置智能代码补全以及管理项目文件等功能，让你的工作流程更加流畅。
 
@@ -155,7 +156,27 @@ Build complete. 0 errors, 1 warnings.
 
 ## 使用方法
 
-### 步骤1：配置Keil路径（一次性设置）
+### 方式一: AI 一键配置（推荐 - 最新功能！）
+
+如果你使用 Claude Code，现在可以完全零手动操作完成配置：
+
+在本仓库中直接告诉 AI：
+> "为我的 Keil 项目配置 .zed，路径是 `D:\MyProject`"
+
+AI 会自动执行以下步骤：
+1. 验证目标路径是否包含 `.uvprojx` 或 `.uvproj` 项目文件
+2. 将 `.zed/` 文件夹（含 `keil2clangd.exe` 二进制）完整复制到目标项目
+3. 自动在常见路径搜索 Keil 安装位置（`C:\Keil_v5\UV4\UV4.exe` 等）
+4. 更新 `keil_task.bat` 中的 `KEIL_PATH` 配置
+5. 打印部署摘要，列出所有可用的 7 个任务
+
+整个过程不超过 30 秒，无需手动下载 GitHub、解压、复制文件、编辑路径。
+
+---
+
+### 方式二: 手动配置
+
+#### 步骤1：配置Keil路径（一次性设置）
 
 编辑`.zed/keil_task.bat`文件，找到以下行：
 ```batch
