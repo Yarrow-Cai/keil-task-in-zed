@@ -19,6 +19,7 @@
 1.  在本仓库中打开终端或 Claude Code 会话
 2.  输入：**"为我的 Keil 项目配置 .zed，路径是 `D:\MyProject`"**
 3.  AI 会自动复制 `.zed/`、搜索 Keil 路径、更新配置，并打印使用说明
+    （`.zed/` 模板由 `configure-keil-zed` Skill 自带，不依赖仓库根目录）
 
 > 无需手动下载、解压、复制、编辑路径，全部交给 AI 完成。
 
@@ -52,6 +53,7 @@
     *   `Keil: 编译 (自动查找)`: 增量编译你的项目。
     *   `Keil: 重新编译 (自动查找)`: 完全重新编译你的项目。
     *   `Keil: 烧录 (自动查找)`: 编译并烧录程序到目标硬件。
+    *   `Keil: 打开工程 (Keil GUI)`: 用 Keil 图形界面打开工程，便于调试与工程配置。
     *   `Keil: 清理 (Clean)`: 清理编译过程中产生的临时文件。
     *   `Keil: clangd 配置与 compile_commands 生成`: 生成 C/C++ 语言服务器配置。
     *   `Keil: 生成 .gitignore 文件`: 自动生成项目所需的 Git 忽略规则。
@@ -59,7 +61,7 @@
 
 ---
 
-## 7大核心功能
+## 8大核心功能
 
 ### 1. 无缝编译集成
 - **自动项目查找**: 自动在当前目录及子目录中查找 `.uvprojx` 或 `.uvproj` 文件
@@ -96,12 +98,17 @@
 - **易于定制**: 可以通过修改 `tasks.json` 添加自定义任务
 - **开源贡献**: 欢迎社区贡献代码和功能建议
 
+### 8. 一键打开 Keil 工程
+- **无缝衔接**: 从 Zed 直接唤起 Keil GUI 打开当前工程，无需手动寻找 `.uvprojx` 文件
+- **异步启动**: 使用 `start` 命令异步启动，不阻塞 Zed 终端
+- **调试便利**: 需要硬件调试、断点或工程配置界面时一键进入 Keil
+
 ---
 
 ## 原理简介
 
 *   `.zed/tasks.json`: Zed 任务的定义文件。它告诉 Zed 命令面板中有哪些任务，以及每个任务应该执行什么命令。
-*   `.zed/keil_task.bat`: 核心功能脚本。它会自动查找项目中的 `.uvprojx` 或 `.uvproj` 文件，并根据任务传来的参数（`build`, `flash` 等）调用 Keil 执行相应操作，同时捕获并显示 Keil 的原生输出。
+*   `.zed/keil_task.bat`: 核心功能脚本。它会自动查找项目中的 `.uvprojx` 或 `.uvproj` 文件，并根据任务传来的参数（`build`, `flash`, `open` 等）调用 Keil 执行相应操作，同时捕获并显示 Keil 的原生输出。
 *   `.zed/keilkilll.bat`: 一个简单的清理脚本，用于删除 Keil 编译产生的各种中间文件。
 *   `.zed/clangd_config.bat`: clangd 配置脚本，自动生成 `.clangd` 和 `compile_commands.json` 文件。
 *   `.zed/gitignore_config.bat`: .gitignore 生成脚本，创建适合 Keil 项目的 Git 忽略规则。

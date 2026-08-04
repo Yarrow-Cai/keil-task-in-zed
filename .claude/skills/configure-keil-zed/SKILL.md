@@ -7,7 +7,9 @@ description: Use when deploying the .zed/ Keil integration folder to a Keil C51/
 
 ## Overview
 
-Copies `.zed/` from this repository to any Keil project and configures the Keil toolchain path. Eliminates manual GitHub download, extraction, and path editing.
+Deploys the bundled `.zed/` template (inside this skill) to any Keil project and configures the Keil toolchain path. Eliminates manual GitHub download, extraction, and path editing.
+
+The skill is self-contained: all scripts and the `keil2clangd.exe` binary live in `.zed/` next to this `SKILL.md`, so deployment works even when the repository root is not the working directory.
 
 ## Quick Reference
 
@@ -26,15 +28,15 @@ Ask the user for the target Keil project directory. If they don't provide one, u
 
 ### Step 2: Copy .zed/ Directory
 
-The source is always `<this-repo-root>/.zed`. The target is `<user-project>/.zed`.
+The source is always the skill-bundled template: `<skill-dir>/.zed` (i.e. `.zed/` next to this `SKILL.md`). The target is `<user-project>/.zed`.
 
 If the target already has a `.zed/` folder, warn the user and ask whether to overwrite. If they decline, abort.
 
 ```powershell
-Copy-Item -Recurse -Force "<repo-root>/.zed" "<target>/.zed"
+Copy-Item -Recurse -Force "<skill-dir>/.zed" "<target>/.zed"
 ```
 
-The copy includes the binary `keil2clangd.exe` which cannot be generated from text — it must be copied from the source repo.
+The copy includes the binary `keil2clangd.exe` which cannot be generated from text — it must be copied from the skill directory.
 
 ### Step 3: Configure KEIL_PATH
 
@@ -57,8 +59,8 @@ Confirm deployment by checking `target/.zed/tasks.json` exists. Print a summary:
 
 ```
 .zed/ 已部署到 <target-path>
-├── tasks.json              # 7 个 Zed 任务
-├── keil/keil_task.bat      # 编译/重新编译/烧录 (KEIL_PATH 已配置)
+├── tasks.json              # 8 个 Zed 任务 (含 打开工程)
+├── keil/keil_task.bat      # 编译/重新编译/烧录/打开工程 (KEIL_PATH 已配置)
 ├── keil/keilkilll.bat      # 清理临时文件
 ├── keil/clangd_config.bat  # clangd 智能补全
 ├── keil/gitignore_config.bat # .gitignore 生成
@@ -74,7 +76,7 @@ Confirm deployment by checking `target/.zed/tasks.json` exists. Print a summary:
 | File | Purpose | Editable |
 |------|---------|----------|
 | `.zed/tasks.json` | Zed task definitions | Yes |
-| `.zed/keil/keil_task.bat` | Build/rebuild/flash | KEIL_PATH only |
+| `.zed/keil/keil_task.bat` | Build/rebuild/flash/open project | KEIL_PATH only |
 | `.zed/keil/keilkilll.bat` | Clean temp files | Yes |
 | `.zed/keil/clangd_config.bat` | Generate clangd config | Yes |
 | `.zed/keil/gitignore_config.bat` | Generate .gitignore | Yes |
@@ -85,7 +87,7 @@ Confirm deployment by checking `target/.zed/tasks.json` exists. Print a summary:
 
 | Mistake | Fix |
 |---------|-----|
-| Missing `keil2clangd.exe` | Must copy from this repo — it's a binary, cannot be generated |
+| Missing `keil2clangd.exe` | Must copy from the skill's `.zed/` — it's a binary, cannot be generated |
 | KEIL_PATH not updated | Always prompt after copy — this is the #1 cause of `[ERROR] Keil 程序未找到` |
 | Wrong target path | Verify `.uvprojx`/`.uvproj` exists BEFORE copying |
 | Silent overwrite | Always ask before overwriting existing `.zed/` |
